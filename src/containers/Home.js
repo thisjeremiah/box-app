@@ -3,17 +3,20 @@ import { compose } from 'recompose'
 import { connect } from 'react-redux'
 import { firebaseConnect, pathToJS } from 'react-redux-firebase'
 import { withRouter } from 'react-router-dom'
-import SliderForm from '../components/SliderForm'
+
+import Box from '../components/Box'
 
 const Home = ({ auth }) =>
-  auth === null
-    ? <div>User Must Login</div>
-    : <div>
-        <SliderForm />
-      </div>
+  auth === null ? (
+    <div>User Must Login</div>
+  ) : (
+    <div>
+      <Box />
+    </div>
+  )
 
 const mapStateToProps = ({ firebase }) => ({
-  auth: pathToJS(firebase, 'auth')
+  auth: pathToJS(firebase, 'auth'),
 })
 
 const enhance = compose(firebaseConnect(), connect(mapStateToProps), withRouter)

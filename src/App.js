@@ -1,11 +1,12 @@
 import React, { Component } from 'react'
 import { Provider } from 'react-redux'
 import { BrowserRouter as Router, Route } from 'react-router-dom'
-import './App.css'
+
 import Nav from './containers/Nav'
 import Home from './containers/Home'
 import Login from './containers/Login'
 import { store } from './createStore.js'
+import './App.css'
 
 class App extends Component {
   render() {
